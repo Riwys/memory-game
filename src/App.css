@@ -9,7 +9,7 @@ body {
   font-weight: 900;
   font-style: normal;
   color: black;
-  background: #FF6A21;
+  background: #FFBF2F;
   text-align: center;
 }
 
@@ -26,14 +26,15 @@ body {
   margin-top: 2vh;
   width: 400px;
   height: 320px;
+  grid-gap: 20px;
 }
 
 .square {
   cursor: pointer;
   border: 2px solid black;
   background-color: #fff;
-  width: 80px;
-  height: 80px;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,7 +48,7 @@ p {
 }
 
 .win {
-  background-color: #63DB3C;
+  background-color: #76CA40;
 }
 
 .clicked {
@@ -60,4 +61,20 @@ p {
 
 h5 {
   text-align: center;
+}
+
+@media only screen and (max-width: 430px) {
+  .board {
+    width: 360px;
+    height: 280px;
+    grid-gap: 20px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .board {
+    width: 320px;
+    height: 240px;
+    grid-gap: 20px;
+  }
 }
