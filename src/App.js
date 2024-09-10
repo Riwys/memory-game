@@ -6,9 +6,6 @@ function App() {
   const [prev, setPrev] = useState();
   const clicked = useRef(0);
   const [winStatus, setWinStatus] = useState('notWin');
-  function success() {
-    setWinStatus();
-  }
 
   function handleLose(index) {
     const nextClassName = className.map((item, i) => {
@@ -47,7 +44,7 @@ function App() {
   useEffect(() => {
     let results = className.filter((item) => item === "square clicked win");
     if (results.length === 12) {
-      success();
+      setWinStatus();
     } else {
       return;
     }
@@ -55,8 +52,7 @@ function App() {
 
   function handleClick(index) {
     if (
-      className[index] === "square clicked win" ||
-      className[index] === "square clicked" || clicked.current !== 0
+      className[index].includes("clicked") || clicked.current !== 0
     ) {
       return;
     }
@@ -82,37 +78,37 @@ function App() {
   }
 
   useEffect(() => {
-  function shuffle(array) {
-    let currentIndex = array.length;
-  
-    // While there remain elements to shuffle...
-    while (currentIndex != 0) {
-  
-      // Pick a remaining element...
-      let randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-  
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
+    function shuffle(array) {
+      let currentIndex = array.length;
+    
+      // While there remain elements to shuffle...
+      while (currentIndex != 0) {
+    
+        // Pick a remaining element...
+        let randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+    
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+          array[randomIndex], array[currentIndex]];
+      }
     }
-  }
   
-  // Used like so
-  let arr = ["😀",
-    "😂",
-    "😀",
-    "😂",
-    "😈",
-    "😎",
-    "😈",
-    "😎",
-    "🧐",
-    "😭",
-    "🧐",
-    "😭",];
-  shuffle(arr);
-  setValue(arr);
+    // Used like so
+    let arr = ["😀",
+      "😂",
+      "😀",
+      "😂",
+      "😈",
+      "😎",
+      "😈",
+      "😎",
+      "🧐",
+      "😭",
+      "🧐",
+      "😭",];
+    shuffle(arr);
+    setValue(arr);
   },[])
 
   return (
